@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Maaf Ya 🥺💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Comic Neue', cursive;
+    background: linear-gradient(135deg,#ffd6e0,#fff1c1);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+.container{
+    max-width:500px;
+    margin:40px auto;
+    background:#ffffffee;
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+    text-align:center;
+}
+h1{
+    color:#ff4d6d;
+}
+.photo img{
+    width:100%;
+    border-radius:20px;
+    display:none;
+    margin-top:10px;
+}
+textarea{
+    width:100%;
+    border-radius:15px;
+    padding:10px;
+    border:1px solid #ddd;
+    font-size:14px;
+    resize:none;
+}
+button{
+    margin-top:10px;
+    padding:10px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+button:hover{
+    background:#ff2e55;
+}
+.heart{
+    position:fixed;
+    top:-10px;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    to{transform:translateY(110vh);opacity:0;}
+}
+.note{
+    font-size:13px;
+    color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIK -->
+<audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <h1>Maaf Ya 🥺💖</h1>
+    <p>Aku salah… tapi aku masih pengen kamu senyum karena aku 😭❤️</p>
+
+    <div class="photo">
+        <input type="file" accept="image/*" onchange="preview(event)">
+        <img id="img">
+        <div class="note">Upload foto paling gemes 😆</div>
+    </div>
+
+    <h3>Pesan dari aku 💌</h3>
+    <textarea rows="5">
+Maaf ya syifa karna terkadang aku kurang bisa ngertiin kamu.
+Aku sayang banget sama kamu jadi aku takut banget kamu pergi😔
+Tapi rasa sayangku ke kamu nggak bercanda atau main main dan terkadang aku terlalu cemburu atau berpikir kamu lagi berpaling dan deket sama cowo lain,jadi maaf ya ❤️
+mudah mudahan senyummu bisa jadi punyaku dan hubungan kita kembali hangat seperti sebelumnya ❤️
+    </textarea>
+
+    <h3>Balasan dari kamu 💕</h3>
+    <textarea rows="4" placeholder="Tulis pesan kamu di sini..."></textarea>
+    <button>Kirim Balasan</button>
+</div>
+
+<script>
+function preview(e){
+    const img=document.getElementById('img');
+    img.src=URL.createObjectURL(e.target.files[0]);
+    img.style.display='block';
+}
+setInterval(()=>{
+    const h=document.createElement('div');
+    h.className='heart';
+    h.innerHTML=Math.random()>0.5?'❤️':'💖';
+    h.style.left=Math.random()*100+'vw';
+    h.style.animationDuration=(3+Math.random()*3)+'s';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+},400);
+</script>
+
+</body>
+</html>
